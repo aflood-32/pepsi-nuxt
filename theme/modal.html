@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pepsi</title>
+
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" type="text/css" />
+    <link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css" type="text/css" />
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <!-- 	<div class="loaderArea">
+	<div class="loader">
+		<div class="loader">
+			<span class="logo">
+				<img src="./images/logo.svg" alt="">
+			</span>
+		</div>
+	</div>
+</div> -->
+      <header class="main-header">
+        <div id="menu-hide" class="bg-hide"></div>
+        <button class="nav-trigger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="header-menu">
+          <ul>
+            <li><a href="#">Вхiд</a>
+            </li>
+            <!-- Зарегистрированные (вместо) -->
+            <!-- <li><a href="#">Особистий кабінет</a></li> -->
+          </ul>
+        </nav>
+        <nav id="nav" class="main-menu-wrap">
+          <div class="main-menu-head">
+            <button class="nav-trigger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <ul>
+              <li><a href="#">Вхiд</a>
+              </li>
+              <!-- Зарегистрированные (вместо) -->
+              <!-- <li><a href="#">Вихiд</a></li> -->
+            </ul>
+          </div>
+          <div class="main-menu">
+            <ul>
+              <li><a href="#">Реєструй код</a>
+              </li>
+              <li><a href="#">Переможці</a>
+              </li>
+              <li><a href="#">Офіційні правила</a>
+              </li>
+              <li><a href="#">Запитання та відповіді</a>
+              </li>
+              <!-- Зарегистрированные (добавить) -->
+              <!-- <li><a href="#">Особистий кабінет</a></li> -->
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <div class="main-logo">
+        <img src="./images/logo.svg" alt="">
+      </div>
+
+      <main role="main">
+        <div class="main-screen">
+
+          <div class="main-title">
+            <span class="text-t">Акція</span>
+            <span id="mainTitleB" class="text-b">
+
+					<span id="mainTitleBefore" class="before"></span>#зимакуваті рулять!
+            <span id="mainTitleAfter" class="after"></span>
+            </span>
+          </div>
+
+          <div class="main-body">
+            <ul style="margin-top: 15px;text-align: center; font-size: 18px;">
+              <li><a href="#login" data-toggle="modal">Вхiд</a>
+              </li>
+              <li><a href="#registration" data-toggle="modal">Реєстрація</a>
+              </li>
+              <li><a href="#recovery" data-toggle="modal">Вiдновлення пароля</a>
+              </li>
+
+              <li><a href="#registrationAddress" data-toggle="modal">ЗАРЕЄСТРУВАТИ АДРЕСУ ДОСТАВКИ</a>
+              </li>
+
+              <li><a href="#myaccount" data-toggle="modal">Особистий кабiнет</a>
+              </li>
+
+              <li><a href="#winners" data-toggle="modal">ПЕРЕМОЖЦІ</a>
+              </li>
+
+              <li><a href="#officialRules" data-toggle="modal">Офіційні правила</a>
+              </li>
+
+              <li><a href="#finish" data-toggle="modal">АКЦІЯ ЗАВЕРШИЛАСЬ!</a>
+              </li>
+
+              <li><a href="#thankAddr" data-toggle="modal">Дякуємо! Твою адресу успішно зареєстровано.</a>
+              </li>
+              <li><a href="#passThanks" data-toggle="modal">ВІДНОВЛЕННЯ ПАРОЛЯ. Дякую</a>
+              </li>
+              <li><a href="#passError" data-toggle="modal">ВІДНОВЛЕННЯ ПАРОЛЯ. Вибач</a>
+              </li>
+              <li><a href="#warning2" data-toggle="modal">Номер або пароль невірний.</a>
+              </li>
+
+              <li><a href="#keyAccepted" data-toggle="modal">Твій код прийнято!</a>
+              </li>
+              <li><a href="#keyMoney" data-toggle="modal">Твій унікальний код зареєстровано! 10 грн</a>
+              </li>
+              <li><a href="#keySocks" data-toggle="modal">Твій унікальний код зареєстровано! Шкарпетки</a>
+              </li>
+              <li><a href="#keyLast" data-toggle="modal">Твій код прийнято! Ліміт реєстрації кодів на сьогодні вичерпано.</a>
+              </li>
+              <li><a href="#keyWrong" data-toggle="modal">Введено некоректний код. Спробуй ще раз</a>
+              </li>
+              <li><a href="#error" data-toggle="modal">Увага, помилка!</a>
+              </li>
+              <li><a href="#limit24" data-toggle="modal">Вибач, але на сьогодні твій ліміт реєстрації некоректних кодів вичерпано. Повертайся за 24 години.</a>
+              </li>
+              <li><a href="#keyRepeat" data-toggle="modal">Такий код уже було зареєстровано. Будь ласка, уважно перевір код і спробуй ще раз.</a>
+              </li>
+              <li><a href="#limit" data-toggle="modal">Твій ліміт реєстрації некоректних кодів вичерпано. Вибач, але тебе відсторонено від подальшої участі в Акції.</a>
+              </li>
+
+              <li><a href="#warning" data-toggle="modal">Увага</a>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="main-footer">
+
+            <div class="sociale">
+              <a href="#" target="_blank" class="viber">
+                <img src="./images/icon-viber.svg" alt="">
+              </a>
+              <span class="sep">або</span>
+              <a href="#" target="_blank" class="telegram">
+                <img src="./images/icon-telegram.svg" alt="">
+              </a>
+            </div>
+
+            <div class="items">
+              <div class="item">
+                <span class="number">1</span>
+                <span class="text">КУПУЙ акційні <i class="hint">i</i></span>
+                <span class="images">
+
+							<img src="./images/pepsi.svg" alt="">
+
+							<img src="./images/7up.png" alt="">
+
+							<img src="./images/mirinda.png" alt="">
+
+						</span>
+              </div>
+              <div class="item">
+                <span class="number">2</span>
+                <span class="text">РЕЄСТРУЙ коди</span>
+              </div>
+              <div class="item">
+                <span class="number">3</span>
+                <span class="text">ВИГРАВАЙ подарунки</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </main>
+
+
+      <!-- Modal -->
+
+      <!-- 1. Вхiд -->
+      <div class="modal fade" id="login" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2">Вхiд</p>
+            </div>
+            <div class="modal-body">
+              <div class="form">
+                <form action="#">
+                  <div class="form-group with-label">
+                    <label for="your-tel">Номер телефону</label>
+                    <input type="tel" name="your-tel" id="your-tel" placeholder="+38 00 000 00 00" value="">
+                  </div>
+                  <div class="form-group with-label">
+                    <label for="your-pass">Пароль</label>
+                    <input type="password" name="your-pass" id="your-pass" value="">
+                  </div>
+
+                  <div class="text-center">
+                    <button class="btn" type="submit">УВІЙТИ</button>
+                  </div>
+                  <div class="recovery-link">
+                    <a href="#">Забули пароль?</a>
+                  </div>
+                  <div class="text-center">
+                    <button class="btn btn-style-2" type="submit">Зареєструватися</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Регистрация -->
+      <div class="modal fade" id="registration" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2">Реєстрація</p>
+            </div>
+            <div class="modal-body">
+              <div class="form">
+                <form action="#">
+                  <div class="form-group with-label">
+                    <label for="your-name">Ім'я</label>
+                    <input type="text" name="your-name" id="your-name" value="">
+                  </div>
+                  <div class="form-group with-label">
+                    <label for="your-tel">Номер телефону</label>
+                    <input type="tel" name="your-tel" id="your-tel" placeholder="+38 00 000 00 00" value="">
+                  </div>
+                  <div class="form-group with-label">
+                    <label for="your-mail">E-mail</label>
+                    <input type="email" name="your-mail" id="your-mail" value="">
+                  </div>
+                  <div class="form-group with-label">
+                    <label for="your-pass">Пароль</label>
+                    <input type="password" name="your-pass" id="your-pass" value="">
+                  </div>
+
+                  <div class="form-group checkbox">
+                    <input type="checkbox" name="terms" id="terms">
+                    <label for="terms">Я погоджуюся з <a href="#">Офіційними правилами</a>
+                      <br>та даю згоду на обробку моїх персональних даних.</label>
+                  </div>
+                  <div class="form-group checkbox">
+                    <input type="checkbox" name="terms2" id="terms2">
+                    <label for="terms2">Я погоджуюся з <a href="#">Умовами використання</a>
+                    </label>
+                  </div>
+
+                  <div class="form-group captcha">
+                    <img src="./images/captcha.png" alt="">
+                  </div>
+
+                  <div class="text-center">
+                    <button class="btn btn-style-2" type="submit">Зареєструватися</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Вiдновлення пароля -->
+      <div class="modal fade" id="recovery" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2">Вiдновлення пароля</p>
+            </div>
+            <div class="modal-body">
+              <div class="form">
+                <form action="#">
+                  <div class="form-group with-label">
+                    <label for="your-mail">E-mail</label>
+                    <input type="email" name="your-mail" id="your-mail" value="">
+                  </div>
+                  <div class="text-center">
+                    <button class="btn btn-style-2" type="submit">Далі</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ЗАРЕЄСТРУВАТИ АДРЕСУ ДОСТАВКИ* -->
+      <div class="modal fade" id="registrationAddress" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head with-desc">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 warning">ЗАРЕЄСТРУВАТИ АДРЕСУ ДОСТАВКИ*</p>
+              <p>Введи свої дані для отримання подарунка</p>
+            </div>
+            <div class="modal-body">
+              <div class="form">
+                <form action="#">
+                  <div class="form-group form-group-bg-2 with-label ">
+                    <label for="your-name1">Прізвище</label>
+                    <input type="text" name="your-name" id="your-name1" value="">
+                  </div>
+                  <div class="form-group form-group-bg-2 with-label">
+                    <label for="your-name2">Ім'я</label>
+                    <input type="text" name="your-name" id="your-name2" value="">
+                  </div>
+                  <div class="form-group form-group-bg-2 with-label">
+                    <label for="your-name3">По-батькові</label>
+                    <input type="text" name="your-name" id="your-name3" value="">
+                  </div>
+
+                  <div class="form-group with-label">
+                    <label for="your-tel">Номер телефону</label>
+                    <input type="tel" name="your-tel" id="your-tel" placeholder="+38 00 000 00 00" value="">
+                  </div>
+                  <div class="form-group with-label">
+                    <label for="your-region">Область</label>
+                    <input type="text" name="your-region" id="your-region" value="">
+                  </div>
+                  <div class="form-group with-label">
+                    <label for="your-city">Місто</label>
+                    <input type="text" name="your-city" id="your-city" value="">
+                  </div>
+
+                  <div class="form-group with-label size-2">
+                    <label for="your-nova">Номер відділення «Нової Пошти»</label>
+                    <input type="text" name="your-nova" id="your-nova" value="">
+                  </div>
+                  <div class="form-group with-label size-2">
+                    <label for="your-size">Розмір шкарпеток</label>
+                    <input type="text" name="your-size" id="your-size" value="">
+                  </div>
+
+                  <div class="form-group checkbox m-sm">
+                    <input type="checkbox" name="terms3" id="terms3">
+                    <label for="terms3">Даю згоду на обробку моїх персональних даних</label>
+                  </div>
+
+                  <div class="text-center">
+                    <button class="btn btn-m-sm" type="submit">Зберегти</button>
+                  </div>
+
+                  <p class="footnote">* Подарунок буде відправлений протягом
+                    <br>30 робочих днів після заповнення адреси.</p>
+
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <p>Детальні умови Акції – за телефоном гарячої лінії 0 800 300 309 (безкоштовно зі стаціонарних телефонів у межах України).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 5. Особистий кабiнет -->
+      <div class="modal fade" id="myaccount" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-big modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head p-sm">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2">Особистий кабiнет</p>
+            </div>
+            <div class="modal-body">
+
+              <div class="account-top">
+                <div class="my-info">
+                  <p class="name">Іван</p>
+                  <p><a href="tel:80967775566">8/096/777-55-66</a>
+                  </p>
+                  <p><a href="mailto:ivanov@gmail.com">ivanov@gmail.com</a>
+                  </p>
+                </div>
+                <div class="my-keys">
+                  <p class="title">Зареєстровано кодів:</p>
+                  <p>32</p>
+                </div>
+              </div>
+
+              <div class="my-statistic-wrap">
+                <p class="h2">ТВОЇ ПОДАРУНКИ</p>
+                <div class="my-statistic scroll-box">
+                  <table>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td>
+                        <button class="btn btn-style-2 btn-sm">Зареєструвати адресу</button>
+                      </td>
+                      <td>ШКАРПЕТКИ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+                    <tr>
+                      <td>ХХХХХХХХХ • 01.10.2019 • 21:01</td>
+                      <td></td>
+                      <td>10 грн НА МОБІЛЬНИЙ</td>
+                    </tr>
+
+                  </table>
+                </div>
+              </div>
+
+              <div class="account-btn-group">
+                <button class="btn">ЗАРЕЄСТРУВАТИ код</button>
+                <button class="btn btn-style-2">ВИХІД</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. ПЕРЕМОЖЦІ -->
+      <div class="modal fade" id="winners" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-big modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head p-sm">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 warning">ПЕРЕМОЖЦІ</p>
+            </div>
+            <div class="modal-body">
+              <p class="h2 m-0">Мандрівка на Буковель</p>
+              <p class="h3">Результати щотижневих розіграшів сертифікатів</p>
+              <div class="winners">
+                <div class="scroll-box">
+                  <table>
+                    <tr>
+                      <td>11 листопада 2019р.:</td>
+                      <td>Іван</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <p class="h4 warning">Результати розіграшу головного призу дивись 20 січня 2020 року</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Офіційні правила -->
+      <div class="modal fade" id="officialRules" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-big modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head p-sm">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 warning">Офіційні правила</p>
+            </div>
+            <div class="modal-body pb-sm">
+              <div class="official-rules">
+                <div class="scroll-box">
+                  <h3>Lorem ipsum</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis
+                    unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                    sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis
+                    unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                    sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                    in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                    beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
+                    quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                  <h3>Lorem ipsum</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis
+                    unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                    sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- АКЦІЯ ЗАВЕРШИЛАСЬ! -->
+      <div class="modal fade" id="finish" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 danger">АКЦІЯ ЗАВЕРШИЛАСЬ!</p>
+            </div>
+            <div class="modal-body">
+              <div class="message bold">
+                <p>Дивися результати розіграшів
+                  <br>у розділі
+                  <br>
+                  <a href="#">«Переможці»</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Дякуємо! Твою адресу успішно зареєстровано. -->
+      <div class="modal fade" id="thankAddr" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="message bold">
+                <p class="h2 warning">Дякуємо! Твою адресу
+                  <br>успішно зареєстровано.</p>
+                <p>Подарунок буде відправлений
+                  <br>протягом 30 робочих днів.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ВІДНОВЛЕННЯ ПАРОЛЯ -->
+      <div class="modal fade" id="passThanks" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 danger">ВІДНОВЛЕННЯ ПАРОЛЯ</p>
+            </div>
+            <div class="modal-body">
+              <div class="message">
+                <p>Дякуємо!
+                  <br>Новий пароль відправлено
+                  <br>на твою електронну пошту.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ВІДНОВЛЕННЯ ПАРОЛЯ -->
+      <div class="modal fade" id="passError" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 danger">ВІДНОВЛЕННЯ ПАРОЛЯ</p>
+            </div>
+            <div class="modal-body">
+              <div class="message">
+                <p>Вибач,
+                  <br>але такої електронної пошти
+                  <br>немає в базі.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- УВАГА -->
+      <div class="modal fade" id="warning2" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 danger">УВАГА</p>
+            </div>
+            <div class="modal-body">
+              <div class="message">
+                <p>Номер
+                  <br>або пароль
+                  <br>невірний.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Дякуємо! Твою адресу успішно зареєстровано. -->
+      <div class="modal fade" id="keyAccepted" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="message bold">
+                <p class="h2 warning">Твій код прийнято!</p>
+                <p>Ти береш участь у тижневому розіграші мандрівки на Буковель!</p>
+                <p>Реєструй ще один код для участі в розіграші автомобіля.</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#">ПРАВИЛА АКЦІЇ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Твій унікальний код зареєстровано! 10 гривень -->
+      <div class="modal fade" id="keyMoney" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="message bold">
+                <p class="h2">Твій унікальний код зареєстровано!
+                </p>
+                <p class="h2 warning">Вітаємо!
+                  <br>Ти отримуєш 10 гривень
+                  <br>на мобільний рахунок.</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#">ПРАВИЛА АКЦІЇ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Твій унікальний код зареєстровано! -->
+      <div class="modal fade" id="keySocks" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head p-sm">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="message bold">
+                <p class="h2">Твій унікальний код зареєстровано!
+                </p>
+                <p class="h2 warning">Вітаємо!
+                  <br>Ти отримуєш шкарпетки.</p>
+              </div>
+              <div class="box-center">
+                <p>Для отримання подарунка, будь ласка, зареєструй протягом 10 днів адресу доставки на сайті.</p>
+                <button class="btn">РЕЄСТРАЦІЯ АДРЕСИ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Твій код прийнято! Ліміт реєстрації кодів на сьогодні вичерпано. -->
+      <div class="modal fade" id="keyLast" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head p-sm">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body pb-sm">
+              <div class="message bold">
+                <p class="h2 warning">Твій код прийнято!</p>
+                <p>Ліміт реєстрації кодів
+                  <br>на сьогодні вичерпано.</p>
+                <p>Дякуємо за активність!</p>
+              </div>
+              <div class="box-center">
+                <p>Протягом доби ти можеш зареєструвати 10 кодів.
+                  <br>Спробуй зареєструвати цей код завтра.</p>
+                <a href="#">ПРАВИЛА АКЦІЇ</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Введено некоректний код. Спробуй ще раз. -->
+      <div class="modal fade" id="keyWrong" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 danger">Увага!</p>
+            </div>
+            <div class="modal-body">
+              <div class="message">
+                <p class="h3">Введено некоректний код.
+                  <br>Спробуй ще раз</p>
+              </div>
+              <div class="box-center">
+                <p>Звертаємо увагу, що після 10 спроб введення некоректного коду твій номер автоматично буде заблоковано для участі в Акції на 24 години!</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#">ПРАВИЛА АКЦІЇ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Увага, помилка! -->
+      <div class="modal fade" id="error" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 danger">Увага, помилка!</p>
+            </div>
+            <div class="modal-body">
+              <div class="message">
+                <p class="h3">На сьогодні доступна ще одна спроба для реєстрації коду.</p>
+              </div>
+              <div class="box-center">
+                <p>Звертаємо увагу, що після 10 спроб введення некоректного коду твій номер автоматично буде заблоковано для участі в Акції на 24 години!</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <p>Детальні умови Акції – за телефоном гарячої лінії 0 800 300 309 (безкоштовно зі стаціонарних телефонів у межах України).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Вибач, але на сьогодні твій ліміт реєстрації некоректних кодів вичерпано. Повертайся за 24 години. -->
+      <div class="modal fade" id="limit24" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head p-sm">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="message">
+                <p class="h3">Вибач, але на сьогодні твій ліміт реєстрації некоректних кодів вичерпано. Повертайся за 24 години.</p>
+              </div>
+              <div class="box-center">
+                <p>Звертаємо увагу, що в разі повторної спроби реєстрації некоректного коду твій номер буде заблоковано для участі в Акції!</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <p>Детальні умови Акції – за телефоном гарячої лінії 0 800 300 309 (безкоштовно зі стаціонарних телефонів у межах України).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Такий код уже було зареєстровано. Будь ласка, уважно перевір код і спробуй ще раз. -->
+      <div class="modal fade" id="keyRepeat" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 danger">Увага!</p>
+            </div>
+            <div class="modal-body">
+              <div class="message">
+                <p class="h3">Такий код уже було зареєстровано. Будь ласка, уважно перевір код і спробуй ще раз.</p>
+              </div>
+              <div class="box-center">
+                <p>Звертаємо увагу, що після 10 спроб введення некоректного коду твій номер автоматично буде заблоковано для участі в Акції на 24 години!</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#">ПРАВИЛА АКЦІЇ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Твій ліміт реєстрації некоректних кодів вичерпано. Вибач, але тебе відсторонено від подальшої участі в Акції. -->
+      <div class="modal fade" id="limit" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head p-sm">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="message">
+                <p class="h3">Твій ліміт реєстрації некоректних кодів вичерпано. Вибач, але тебе відсторонено від подальшої участі в Акції.</p>
+              </div>
+              <div class="box-center">
+                <p>Деталі дивися
+                  <br>в <a href="#">ОФІЦІЙНИХ ПРАВИЛАХ</a>
+                </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <p>Детальні умови Акції – за телефоном гарячої лінії 0 800 300 309 (безкоштовно зі стаціонарних телефонів у межах України).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 0. Увага -->
+      <div class="modal fade" id="warning" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-head">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+              <p class="h2 danger">Увага!</p>
+            </div>
+            <div class="modal-body">
+              <div class="message">
+                <p>Такого коду не існує.
+                  <br>Будь-ласка, введи коректний
+                  <br>акційний код.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery.mCustomScrollbar.min.js"></script>
+    <script src="./js/script.js"></script>
+
+
+  </body>
+
+</html>
