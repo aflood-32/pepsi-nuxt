@@ -19,7 +19,11 @@
     </div>
     <div class="main-menu">
       <ul>
-        <li><a data-id="sidebar-btns" href="#">Реєструй код</a></li>
+        <li>
+          <a data-id="sidebar-btns" href="#" @click="focusInput"
+            >Реєструй код</a
+          >
+        </li>
         <li>
           <a
             data-id="sidebar-btns"
@@ -28,10 +32,23 @@
             >Переможці</a
           >
         </li>
-        <li><a data-id="sidebar-btns" href="#">Офіційні правила</a></li>
-        <li><a data-id="sidebar-btns" href="#">Запитання та відповіді</a></li>
+        <li>
+          <a data-id="sidebar-btns" href="#" @click.prevent="setModal('rules')"
+            >Офіційні правила</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://drive.google.com/file/d/1sbTSmsW_0SLa5_XpUObTzKTssM5vslJO/view"
+            target="_blank"
+            >Запитання та відповіді</a
+          >
+        </li>
         <li v-if="user">
-          <a href="#" @click.prevent="setModal('myaccount')"
+          <a
+            data-id="sidebar-btns"
+            href="#"
+            @click.prevent="setModal('myaccount')"
             >Особистий кабінет</a
           >
         </li>
@@ -42,6 +59,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+import EventHub from '~/plugins/EventHub'
 export default {
   props: {
     user: {
@@ -55,6 +73,9 @@ export default {
     ...mapActions({
       setModal: 'setModal',
     }),
+    focusInput() {
+      EventHub.$emit('focusCodeInput')
+    },
   },
 }
 </script>

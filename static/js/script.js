@@ -26,10 +26,10 @@ $(document).ready(function() {
 	$('#mainTitleAfter').text($repeatedText);
 
 	/* key */
-	$('.over-key').on('click', function(){
-		$('.key-form-wrap').addClass('active');
-		return false;
-	});
+	// $('.over-key').on('click', function(){
+	// 	$('.key-form-wrap').addClass('active');
+	// 	return false;
+	// });
 
 	/**/
 	$(".scroll-box").mCustomScrollbar({});

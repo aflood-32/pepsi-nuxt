@@ -47,6 +47,11 @@ export default {
       user: 'getUser',
     }),
   },
+  mounted() {
+    if (localStorage.getItem('user')) {
+      this.$store.dispatch('logIn', JSON.parse(localStorage.getItem('user')))
+    }
+  },
   methods: {
     ...mapActions({
       setModal: 'setModal',

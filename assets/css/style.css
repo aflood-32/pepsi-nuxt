@@ -2508,3 +2508,8 @@ i.hint {
 /* @import "loader"; */
 
 /*# sourceMappingURL=style.css.map */
+
+.key-form .key-input{
+  min-width: auto;
+  width: 100%;
+}

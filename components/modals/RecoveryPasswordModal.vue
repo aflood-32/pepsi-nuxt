@@ -24,10 +24,16 @@
         </div>
         <div class="modal-body">
           <div class="form">
-            <form action="#">
+            <form @submit.prevent="handleSubmit">
               <div class="form-group with-label">
                 <label for="your-mail">E-mail</label>
-                <input id="your-mail" type="email" name="your-mail" value="" />
+                <input
+                  id="your-mail"
+                  v-model="form.email"
+                  placeholder="mail@mail.com"
+                  type="text"
+                  name="email"
+                />
               </div>
               <div class="text-center">
                 <button class="btn btn-style-2" type="submit">Далі</button>
@@ -41,7 +47,21 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      submitted: false,
+      form: {
+        email: '',
+      },
+    }
+  },
+  methods: {
+    handleSubmit() {
+      console.log('sads')
+    },
+  },
+}
 </script>
 
 <style scoped></style>

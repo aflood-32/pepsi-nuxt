@@ -30,12 +30,23 @@
           <p class="h3">Результати щотижневих розіграшів сертифікатів</p>
           <div class="winners">
             <div class="scroll-box">
-              <table>
-                <tr>
-                  <td>11 листопада 2019р.:</td>
-                  <td>Іван</td>
-                </tr>
-              </table>
+              <vuescroll :ops="ops">
+                <table style="padding-right: 20px">
+                  <tr v-if="!$store.state.winners.length">
+                    <td>11 листопада 2019р.:</td>
+                    <td>Іван</td>
+                  </tr>
+                  <template v-else>
+                    <tr
+                      v-for="item in $store.state.winners"
+                      :key="item.activatetime + item.name"
+                    >
+                      <td>{{ item.activatetime | date }}Р.</td>
+                      <td>{{ item.name }}</td>
+                    </tr>
+                  </template>
+                </table>
+              </vuescroll>
             </div>
           </div>
           <p class="h4 warning">
@@ -48,7 +59,32 @@
 </template>
 
 <script>
-export default {}
+import vuescroll from 'vuescroll'
+import moment from 'moment'
+import { scrollOptions } from '~/helpers/constants'
+export default {
+  components: { vuescroll },
+  filters: {
+    date(date) {
+      moment.locale('uk')
+      return moment(date).format('DD MMMM YYYY')
+    },
+  },
+  data() {
+    return {
+      ops: { ...scrollOptions },
+    }
+  },
+  mounted() {
+    if (!this.$store.state.winners.length) {
+      this.$store.dispatch('fetchInfo', 'winners')
+    }
+  },
+}
 </script>
 
-<style scoped></style>
+<style scoped>
+.winners {
+  padding: 7px;
+}
+</style>
