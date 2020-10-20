@@ -1,3 +1,3 @@
 import Vue from 'vue'
-import { VueMaskDirective } from 'v-mask'
-Vue.directive('mask', VueMaskDirective)
+const VueInputMask = require('vue-inputmask').default
+Vue.use(VueInputMask)

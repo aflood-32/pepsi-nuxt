@@ -27,8 +27,8 @@ const store = () =>
       FETCH_WINNERS_SUCCESS(state, payload) {
         state.winners = payload
       },
-      LOG_IN(state) {
-        state.user = { name: 'Petro' }
+      LOG_IN(state, payload) {
+        state.user = payload.user
       },
       LOG_OUT(state) {
         state.user = null
@@ -46,6 +46,26 @@ const store = () =>
           commit('MODAL_SET', 'login')
         }
       },
+      register({ commit, dispatch }, payload) {
+        axios
+          .post(`${BASE_API_PATH}/user/registration`, payload)
+          .then((res) => {
+            dispatch('logIn', res.data.data)
+            dispatch('setModal', null)
+          })
+          .catch((err) => {
+            console.log(err.response)
+          })
+        console.log(payload)
+      },
+      logIn({ commit }, payload) {
+        commit('LOG_IN', payload)
+        localStorage.setItem('user', JSON.stringify(payload))
+      },
+      logOut({ commit }) {
+        commit('LOG_OUT')
+        localStorage.removeItem('user')
+      },
       fetchInfo({ commit }, payload) {
         axios
           .get(`${BASE_API_PATH}/info/${payload}`)
@@ -55,14 +75,6 @@ const store = () =>
           .catch((err) => {
             console.error(err)
           })
-      },
-      logIn({ commit }, payload) {
-        commit('LOG_IN', payload)
-        localStorage.setItem('user', JSON.stringify({ name: 'Petro' }))
-      },
-      logOut({ commit }) {
-        commit('LOG_OUT')
-        localStorage.removeItem('user')
       },
     },
     getters: {

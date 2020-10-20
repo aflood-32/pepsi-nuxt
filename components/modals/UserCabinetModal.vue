@@ -29,13 +29,17 @@
         <div class="modal-body">
           <div class="account-top">
             <div class="my-info">
-              <p class="name">Іван</p>
-              <p><a href="tel:80967775566">8/096/777-55-66</a></p>
-              <p><a href="mailto:ivanov@gmail.com">ivanov@gmail.com</a></p>
+              <p class="name">{{ user.name }}</p>
+              <p>
+                <a :href="`tel:+${user.phone}`">+{{ user.phone | phone }}</a>
+              </p>
+              <p>
+                <a :href="`mailto:${user.email}`">{{ user.email }}</a>
+              </p>
             </div>
             <div class="my-keys">
               <p class="title">Зареєстровано кодів:</p>
-              <p>32</p>
+              <p>{{ user.data ? user.data.lenght : 0 }}</p>
             </div>
           </div>
 
@@ -117,7 +121,21 @@
 </template>
 
 <script>
-export default {}
+export default {
+  filters: {
+    phone(phone) {
+      return phone.replace(
+        /(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})/,
+        '$1($2)-$3-$4-$5'
+      )
+    },
+  },
+  computed: {
+    user() {
+      return this.$store.state.user
+    },
+  },
+}
 </script>
 
 <style scoped></style>

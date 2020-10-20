@@ -4,6 +4,7 @@
   src: url("../fonts/FuturaNewBook-Obl.eot");
   src: local("Futura New Book Obl"), local("FuturaNewBook-Obl"), url("../fonts/FuturaNewBook-Obl.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewBook-Obl.woff2") format("woff2"), url("../fonts/FuturaNewBook-Obl.woff") format("woff"), url("../fonts/FuturaNewBook-Obl.ttf") format("truetype");
   font-weight: normal;
+  font-display: swap;
   font-style: italic; }
 
 @font-face {
@@ -11,6 +12,7 @@
   src: url("../fonts/FuturaNewExtraBold-Obl.eot");
   src: local("Futura New ExtraBold Obl"), local("FuturaNewExtraBold-Obl"), url("../fonts/FuturaNewExtraBold-Obl.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewExtraBold-Obl.woff2") format("woff2"), url("../fonts/FuturaNewExtraBold-Obl.woff") format("woff"), url("../fonts/FuturaNewExtraBold-Obl.ttf") format("truetype");
   font-weight: 800;
+  font-display: swap;
   font-style: italic; }
 
 @font-face {
@@ -18,12 +20,14 @@
   src: url("../fonts/FuturaNewBold-Obl.eot");
   src: local("Futura New Bold Obl"), local("FuturaNewBold-Obl"), url("../fonts/FuturaNewBold-Obl.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewBold-Obl.woff2") format("woff2"), url("../fonts/FuturaNewBold-Obl.woff") format("woff"), url("../fonts/FuturaNewBold-Obl.ttf") format("truetype");
   font-weight: bold;
+  font-display: swap;
   font-style: italic; }
 
 @font-face {
   font-family: 'Proxima Nova Condensed';
   src: local("Proxima Nova Condensed Black Italic"), local("Proxima-Nova-Condensed-Black-Italic"), url("../fonts/ProximaNovaCond-BlackIt.woff2") format("woff2"), url("../fonts/ProximaNovaCond-BlackIt.woff") format("woff"), url("../fonts/ProximaNovaCond-BlackIt.ttf") format("truetype");
   font-weight: 900;
+  font-display: swap;
   font-style: italic; }
 
 /* dark blue */

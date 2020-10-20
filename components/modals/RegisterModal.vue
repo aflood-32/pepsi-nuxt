@@ -26,58 +26,86 @@
           <div class="form">
             <form @submit.prevent="handleSubmit">
               <div
-                class="form-group with-label"
+                class="form-group form-group--error with-label"
                 :class="[$v.form.name.$error && 'error']"
               >
                 <label for="your-name">Ім'я</label>
                 <input
                   id="your-name"
-                  v-model="form.name"
+                  v-model.trim="$v.form.name.$model"
                   placeholder="Ім'я"
                   type="text"
                   name="name"
                 />
               </div>
-              <p v-if="$v.form.name.required" style="text-align: center">
+              <p v-if="!$v.form.name.required" class="field-error">
                 Обов'язкове поле
               </p>
-              <div class="form-group with-label">
+              <div
+                class="form-group with-label"
+                :class="[$v.form.phone.$error && 'error']"
+              >
                 <label for="your-tel-2">Номер телефону</label>
                 <input
                   id="your-tel-2"
-                  v-model="form.phone"
+                  v-model.trim="$v.form.phone.$model"
+                  v-mask="{ mask: '+38(099)-999-99-99', greedy: true }"
                   type="tel"
                   name="phone"
                   placeholder="+38 00 000 00 00"
                 />
               </div>
-              <div class="form-group with-label">
+              <p v-if="!$v.form.phone.required" class="field-error">
+                Обов'язкове поле
+              </p>
+              <div
+                class="form-group with-label"
+                :class="[$v.form.email.$error && 'error']"
+              >
                 <label for="your-mail-2">E-mail</label>
                 <input
                   id="your-mail-2"
-                  v-model="form.email"
+                  v-model="$v.form.email.$model"
                   placeholder="mail@mail.com"
                   type="text"
                   name="email"
                 />
               </div>
-              <div class="form-group with-label">
+              <p v-if="!$v.form.email.required" class="field-error">
+                Обов'язкове поле
+              </p>
+              <p v-if="!$v.form.email.email" class="field-error">
+                Email має бути валідним
+              </p>
+              <div
+                class="form-group with-label"
+                :class="[$v.form.password.$error && 'error']"
+              >
                 <label for="your-pass">Пароль</label>
                 <input
                   id="your-pass"
-                  v-model="form.password"
+                  v-model="$v.form.password.$model"
                   placeholder="*******"
                   type="password"
                   name="your-pass"
                 />
               </div>
-
-              <div class="form-group checkbox">
+              <p v-if="!$v.form.password.required" class="field-error">
+                Обов'язкове поле
+              </p>
+              <p v-if="!$v.form.password.minLength" class="field-error">
+                Пароль повинен бути не меньше
+                {{ $v.form.password.$params.minLength.min }} символів
+              </p>
+              <div
+                class="form-group checkbox"
+                :class="[$v.form.rules.$error && 'error']"
+              >
                 <input
                   id="terms"
+                  v-model="$v.form.rules.$model"
                   type="checkbox"
                   name="terms"
-                  v-model="form.rules"
                 />
                 <label for="terms"
                   >Я погоджуюся з
@@ -89,12 +117,18 @@
                   <br />та даю згоду на обробку моїх персональних даних.</label
                 >
               </div>
-              <div class="form-group checkbox">
+              <p v-if="!$v.form.rules.sameAs" class="field-error">
+                Погодьтесь з Офіційними правилами
+              </p>
+              <div
+                class="form-group checkbox"
+                :class="[$v.form.terms.$error && 'error']"
+              >
                 <input
                   id="terms2"
+                  v-model="$v.form.terms.$model"
                   type="checkbox"
                   name="terms2"
-                  v-model="form.terms"
                 />
                 <label for="terms2"
                   >Я погоджуюся з
@@ -105,7 +139,9 @@
                   >
                 </label>
               </div>
-
+              <p v-if="!$v.form.terms.sameAs" class="field-error">
+                Погодьтесь з Умовами використання
+              </p>
               <div class="text-center">
                 <button
                   :disabled="$v.form.$pending"
@@ -124,15 +160,17 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators'
+import { required, minLength, email, sameAs } from 'vuelidate/lib/validators'
 export default {
   data() {
     return {
       submitted: false,
+      mask: {
+        prefix: '$',
+      },
       form: {
         name: '',
         phone: '',
-        dob: '',
         email: '',
         password: '',
         rules: false,
@@ -142,8 +180,10 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.submitted = true
-      console.log(this.$v.form)
+      this.$v.$touch()
+      if (!this.$v.$invalid) {
+        this.$store.dispatch('register', this.form)
+      }
     },
   },
   validations: {
@@ -156,15 +196,17 @@ export default {
       },
       email: {
         required,
+        email,
       },
       password: {
         required,
+        minLength: minLength(8),
       },
       rules: {
-        required,
+        sameAs: sameAs(() => true),
       },
       terms: {
-        required,
+        sameAs: sameAs(() => true),
       },
     },
   },
@@ -172,13 +214,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.field-error {
+  opacity: 0;
+  margin: 0 0 3px;
+  line-height: 1;
+  text-align: right;
+  color: #c51437;
+  transition: opacity linear 0.3s;
+}
 .btn:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
 .form-group {
+  transition: all linear 0.3s;
   &.error {
-    background: red;
+    & + .field-error {
+      opacity: 1;
+    }
   }
 }
 </style>

@@ -10,7 +10,7 @@
     />
     <register-modal
       v-if="modal === 'registration'"
-      @close="$store.commit('MODAL_SET', 'login')"
+      @close="$store.commit('MODAL_SET', null)"
     />
     <recovery-password-modal
       v-if="modal === 'recovery'"

@@ -4,12 +4,12 @@
       <form @submit.prevent="handleSubmit">
         <input
           v-model.trim="form.code"
-          @keydown.space.prevent
           placeholder="XXXXXXXXXXX"
           type="text"
           maxlength="11"
           ref="codeInput"
           class="key-input"
+          @keydown.space.prevent
         />
         <button type="submit" class="key-btn"></button>
       </form>

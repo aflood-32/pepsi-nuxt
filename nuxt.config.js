@@ -4,10 +4,15 @@ export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'PROMO',
+    lang: 'ua',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'PROMO TEST DESCRIPTION' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'PROMO TEST DESCRIPTION',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
@@ -16,12 +21,15 @@ export default {
       },
       {
         src: '/js/bootstrap.bundle.min.js',
+        async: true,
       },
       {
         src: '/js/jquery.mCustomScrollbar.min.js',
+        async: true,
       },
       {
         src: '/js/script.js',
+        async: true,
       },
     ],
   },
@@ -35,8 +43,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    {src: '~/plugins/Vuelidate'},
-    {src: '~/plugins/Vmask'}
+    { src: '~/plugins/Vuelidate' },
+    { src: '~/plugins/Vmask', mode: 'client' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
