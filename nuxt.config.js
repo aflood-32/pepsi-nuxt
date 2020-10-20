@@ -1,7 +1,6 @@
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'pepsi',
@@ -35,7 +34,10 @@ export default {
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [
+    {src: '~/plugins/Vuelidate'},
+    {src: '~/plugins/Vmask'}
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -50,5 +52,9 @@ export default {
   modules: [],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    extractCSS: true,
+    minifyCSS: true,
+    minifyJS: true,
+  },
 }

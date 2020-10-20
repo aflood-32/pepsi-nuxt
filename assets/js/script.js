@@ -1,46 +1,43 @@
 $(window).on('load', function () {
-    $preloader = $('.loaderArea'),
-    $loader = $preloader.find('.loader');
-    $loader.fadeOut();
-    $preloader.delay(350).fadeOut('slow');
+  ;($preloader = $('.loaderArea')), ($loader = $preloader.find('.loader'))
+  $loader.fadeOut()
+  $preloader.delay(350).fadeOut('slow')
 
-    /* init animation */
-    $('body').addClass('loaded');
+  /* init animation */
+  $('body').addClass('loaded')
+})
 
-});
+$(document).ready(function () {
+  /* menu */
+  $('.nav-trigger, #menu-hide').on('click', function () {
+    $('#nav').toggleClass('active')
+    $('.nav-trigger').toggleClass('active')
+    $('body').toggleClass('menu-active')
+    return false
+  })
 
-$(document).ready(function() {
+  /* main-text */
+  $repeatedText = $('#mainTitleB').text()
+  $repeatedText = $repeatedText + $repeatedText + $repeatedText
+  $('#mainTitleBefore').text($repeatedText)
+  $('#mainTitleAfter').text($repeatedText)
 
-	/* menu */
-	$('.nav-trigger, #menu-hide').on('click', function(){
-		$('#nav').toggleClass('active');
-		$('.nav-trigger').toggleClass('active');
-		$('body').toggleClass('menu-active');
-		return false;
-	});
+  /* key */
+  $('.over-key').on('click', function () {
+    $('.key-form-wrap').addClass('active')
+    return false
+  })
 
-	/* main-text */
-	$repeatedText = $('#mainTitleB').text();
-	$repeatedText = $repeatedText + $repeatedText + $repeatedText;
-	$('#mainTitleBefore').text($repeatedText);
-	$('#mainTitleAfter').text($repeatedText);
+  /**/
+  $('.scroll-box').mCustomScrollbar({})
 
-	/* key */
-	$('.over-key').on('click', function(){
-		$('.key-form-wrap').addClass('active');
-		return false;
-	});
+  /* tooltip */
+  $('[data-toggle="tooltip"]').tooltip({
+    html: true,
+    container: 'body',
+    template:
+      '<div class="tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
+  })
 
-	/**/
-	$(".scroll-box").mCustomScrollbar({});
 
-	/* tooltip */
-	$('[data-toggle="tooltip"]').tooltip({
-		html: true,
-		container: 'body',
-		template: '<div class="tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
-	});
-
-  console.log('sads');
-
-});
+})

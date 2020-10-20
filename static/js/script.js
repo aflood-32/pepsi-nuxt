@@ -41,6 +41,13 @@ $(document).ready(function() {
 		template: '<div class="tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
 	});
 
-  console.log('sads');
+  document.querySelectorAll("[data-id='sidebar-btns']").forEach((elem) => {
+    elem.onclick = function (e) {
+      e.preventDefault();
+      $('#nav').removeClass('active');
+      $('.nav-trigger').removeClass('active');
+      $('body').removeClass('menu-active');
+    }
+  })
 
 });
