@@ -111,8 +111,8 @@
           </div>
 
           <div class="account-btn-group">
-            <button class="btn">ЗАРЕЄСТРУВАТИ код</button>
-            <button class="btn btn-style-2">ВИХІД</button>
+            <button class="btn" @click="focusInput()">ЗАРЕЄСТРУВАТИ код</button>
+            <button class="btn btn-style-2" @click="logOut()">ВИХІД</button>
           </div>
         </div>
       </div>
@@ -121,6 +121,8 @@
 </template>
 
 <script>
+import EventHub from '@/plugins/EventHub'
+
 export default {
   filters: {
     phone(phone) {
@@ -133,6 +135,16 @@ export default {
   computed: {
     user() {
       return this.$store.state.user
+    },
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('setModal', null)
+      this.$store.dispatch('logOut')
+    },
+    focusInput() {
+      this.$store.dispatch('setModal', null)
+      EventHub.$emit('focusCodeInput')
     },
   },
 }

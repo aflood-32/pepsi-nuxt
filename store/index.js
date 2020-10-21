@@ -82,6 +82,21 @@ const store = () =>
             }
           })
       },
+      recover({ commit, dispatch }, payload) {
+        axios
+          .post(`${BASE_API_PATH}/user/forgot`, payload)
+          .then((res) => {
+            // dispatch('logIn', res.data.data)
+            dispatch('setModal', 'recoverySuccess')
+          })
+          .catch((err) => {
+            const status = err.response.status
+            console.log(err.response)
+            if (status === 404) {
+              dispatch('setInfoModal', 'recoveryError')
+            }
+          })
+      },
       logIn({ commit }, payload) {
         commit('LOG_IN', payload)
         localStorage.setItem('user', JSON.stringify(payload))

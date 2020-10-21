@@ -36,6 +36,10 @@
       v-if="modal === 'rules'"
       @close="$store.commit('MODAL_SET', null)"
     />
+    <password-recovery-success
+      v-if="modal === 'recoverySuccess'"
+      @close="$store.commit('MODAL_SET', null)"
+    />
   </div>
 </template>
 
@@ -47,6 +51,7 @@ import RecoveryPasswordModal from '~/components/Modals/RecoveryPasswordModal'
 import UserCabinetModal from '~/components/Modals/UserCabinetModal'
 import ErrorWrongCode from '~/components/Modals/ErrorWrongCode'
 import RulesModal from '~/components/Modals/RulesModal'
+import PasswordRecoverySuccess from '~/components/Modals/PasswordRecoverySuccess'
 export default {
   components: {
     LoginModal,
@@ -56,6 +61,7 @@ export default {
     UserCabinetModal,
     ErrorWrongCode,
     RulesModal,
+    PasswordRecoverySuccess,
   },
   props: {
     modal: {

@@ -1,14 +1,22 @@
 <template>
   <!-- ВІДНОВЛЕННЯ ПАРОЛЯ -->
-  <div id="passError" class="modal fade" tabindex="-1" role="dialog">
+  <div
+    id="passError"
+    class="modal fade show modal-info"
+    style="display: block"
+    tabindex="-1"
+    role="dialog"
+    @click="$emit('close')"
+  >
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+      <div class="modal-content" @click.stop>
         <div class="modal-head">
           <button
             type="button"
             class="close"
             data-dismiss="modal"
             aria-label="Close"
+            @click="$emit('close')"
           >
             ×
           </button>
@@ -25,7 +33,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    const self = this
+    setTimeout(() => {
+      self.$emit('close')
+    }, 2000)
+  },
+}
 </script>
 
 <style scoped></style>
