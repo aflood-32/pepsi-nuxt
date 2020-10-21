@@ -111,7 +111,7 @@
                   >Я погоджуюся з
                   <a
                     href="#"
-                    @click.prevent="$store.dispatch('setModal', 'rules')"
+                    @click.prevent="$store.dispatch('setInfoModal', 'rules')"
                     >Офіційними правилами</a
                   >
                   <br />та даю згоду на обробку моїх персональних даних.</label
@@ -165,9 +165,6 @@ export default {
   data() {
     return {
       submitted: false,
-      mask: {
-        prefix: '$',
-      },
       form: {
         name: '',
         phone: '',
@@ -213,7 +210,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .field-error {
   opacity: 0;
   margin: 0 0 3px;

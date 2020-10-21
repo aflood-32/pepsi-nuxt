@@ -40,13 +40,13 @@
 </template>
 
 <script>
-import LoginModal from '~/components/modals/LoginModal'
-import Winners from '~/components/modals/Winners'
-import RegisterModal from '~/components/modals/RegisterModal'
-import RecoveryPasswordModal from '~/components/modals/RecoveryPasswordModal'
-import UserCabinetModal from '~/components/modals/UserCabinetModal'
-import ErrorWrongCode from '~/components/modals/ErrorWrongCode'
-import RulesModal from '~/components/modals/RulesModal'
+import LoginModal from '~/components/Modals/LoginModal'
+import Winners from '~/components/Modals/Winners'
+import RegisterModal from '~/components/Modals/RegisterModal'
+import RecoveryPasswordModal from '~/components/Modals/RecoveryPasswordModal'
+import UserCabinetModal from '~/components/Modals/UserCabinetModal'
+import ErrorWrongCode from '~/components/Modals/ErrorWrongCode'
+import RulesModal from '~/components/Modals/RulesModal'
 export default {
   components: {
     LoginModal,

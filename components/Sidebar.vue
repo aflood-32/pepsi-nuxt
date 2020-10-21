@@ -11,7 +11,10 @@
           <a href="#" @click="setModal('login')">Вхiд</a>
         </li>
         <li v-else>
-          <a data-id="sidebar-btns" href="#" @click="$store.commit('LOG_OUT')"
+          <a
+            data-id="sidebar-btns"
+            href="#"
+            @click.prevent="$store.dispatch('logOut')"
             >Вихiд</a
           >
         </li>

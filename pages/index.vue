@@ -27,8 +27,9 @@
     </div>
     <main-body />
     <modals :modal="modal" />
+    <info :info-modal="info" />
     <div
-      v-if="modal"
+      v-if="modal || info"
       @click="setModal(null)"
       class="modal-backdrop fade show"
     />
@@ -38,12 +39,14 @@
 import { mapGetters, mapActions } from 'vuex'
 import MainBody from '~/components/MainBody'
 import Sidebar from '~/components/Sidebar'
-import Modals from '~/components/modals'
+import Modals from '~/components/Modals'
+import Info from '~/components/InfoModals'
 export default {
-  components: { Sidebar, Modals, MainBody },
+  components: { Sidebar, Modals, MainBody, Info },
   computed: {
     ...mapGetters({
       modal: 'getModal',
+      info: 'getInfo',
       user: 'getUser',
     }),
   },
