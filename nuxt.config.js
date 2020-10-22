@@ -5,7 +5,7 @@ export default {
   head: {
     title: 'PROMO',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'ua',
     },
     meta: [
       { charset: 'utf-8' },
