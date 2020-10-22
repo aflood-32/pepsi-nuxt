@@ -1,24 +1,31 @@
 <template>
-  <!-- Такий код уже було зареєстровано. Будь ласка, уважно перевір код і спробуй ще раз. -->
-  <div id="keyRepeat" class="modal fade" tabindex="-1" role="dialog">
+  <!-- Увага, помилка! -->
+  <div
+    id="error"
+    class="modal fade show"
+    style="display: block"
+    tabindex="-1"
+    role="dialog"
+    @click="$emit('close')"
+  >
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+      <div class="modal-content" @click.stop>
         <div class="modal-head">
           <button
             type="button"
             class="close"
             data-dismiss="modal"
             aria-label="Close"
+            @click="$emit('close')"
           >
             ×
           </button>
-          <p class="h2 danger">Увага!</p>
+          <p class="h2 danger">Увага, помилка!</p>
         </div>
         <div class="modal-body">
           <div class="message">
             <p class="h3">
-              Такий код уже було зареєстровано. Будь ласка, уважно перевір код і
-              спробуй ще раз.
+              На сьогодні доступна ще одна спроба для реєстрації коду.
             </p>
           </div>
           <div class="box-center">
@@ -30,7 +37,10 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a href="#">ПРАВИЛА АКЦІЇ</a>
+          <p>
+            Детальні умови Акції – за телефоном гарячої лінії 0 800 300 309
+            (безкоштовно зі стаціонарних телефонів у межах України).
+          </p>
         </div>
       </div>
     </div>

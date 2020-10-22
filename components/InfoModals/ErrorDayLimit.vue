@@ -1,30 +1,37 @@
 <template>
-  <!-- Увага, помилка! -->
-  <div id="error" class="modal fade" tabindex="-1" role="dialog">
+  <!-- Вибач, але на сьогодні твій ліміт реєстрації некоректних кодів вичерпано. Повертайся за 24 години. -->
+  <div
+    id="limit24"
+    class="modal fade show"
+    style="display: block"
+    tabindex="-1"
+    role="dialog"
+    @click="$emit('close')"
+  >
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-head">
+      <div class="modal-content" @click.stop>
+        <div class="modal-head p-sm">
           <button
             type="button"
             class="close"
             data-dismiss="modal"
             aria-label="Close"
+            @click="$emit('close')"
           >
             ×
           </button>
-          <p class="h2 danger">Увага, помилка!</p>
         </div>
         <div class="modal-body">
           <div class="message">
             <p class="h3">
-              На сьогодні доступна ще одна спроба для реєстрації коду.
+              Вибач, але на сьогодні твій ліміт реєстрації некоректних кодів
+              вичерпано. Повертайся за 24 години.
             </p>
           </div>
           <div class="box-center">
             <p>
-              Звертаємо увагу, що після 10 спроб введення некоректного коду твій
-              номер автоматично буде заблоковано для участі в Акції на 24
-              години!
+              Звертаємо увагу, що в разі повторної спроби реєстрації
+              некоректного коду твій номер буде заблоковано для участі в Акції!
             </p>
           </div>
         </div>

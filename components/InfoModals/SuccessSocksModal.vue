@@ -1,14 +1,21 @@
 <template>
   <!-- Твій унікальний код зареєстровано! -->
-  <div id="keySocks" class="modal fade" tabindex="-1" role="dialog">
+  <div
+    id="keySocks"
+    class="modal fade show"
+    style="display: block"
+    tabindex="-1"
+    role="dialog"
+  >
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+      <div class="modal-content" @click.stop>
         <div class="modal-head p-sm">
           <button
             type="button"
             class="close"
             data-dismiss="modal"
             aria-label="Close"
+            @click="$emit('close')"
           >
             ×
           </button>

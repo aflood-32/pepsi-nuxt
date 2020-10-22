@@ -3,18 +3,18 @@
     <div class="key-form">
       <form @submit.prevent="handleSubmit">
         <input
-          v-model.trim="form.code"
-          placeholder="XXXXXXXXXXX"
-          type="text"
-          maxlength="11"
           ref="codeInput"
+          v-model.trim="form.code"
+          placeholder="XXXXXXXX"
+          type="text"
+          maxlength="8"
           class="key-input"
           @keydown.space.prevent
         />
         <button type="submit" class="key-btn"></button>
       </form>
     </div>
-    <div @click="activateField" class="over-key">РЕЄСТРУЙ КОД</div>
+    <div class="over-key" @click="activateField">РЕЄСТРУЙ КОД</div>
   </div>
 </template>
 
@@ -42,11 +42,11 @@ export default {
     handleSubmit() {
       const regex = /^[A-Za-z0-9]+$/
       const code = this.form.code
-      if (code && code.length === 11 && regex.test(code)) {
+      if (code && code.length === 8 && regex.test(code)) {
         this.$store.dispatch('saveCode', code)
         // this.form.code = ''
       } else {
-        this.$store.dispatch('setModal', 'incorrect_code')
+        this.$store.dispatch('setInfoModal', 'incorrect_code')
       }
     },
     activateField() {

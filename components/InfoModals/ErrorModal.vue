@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import { modalCloseTimeout } from '@/helpers/constants'
+
 export default {
   props: {
     message: {
@@ -45,7 +47,7 @@ export default {
     const self = this
     setTimeout(() => {
       self.$emit('close')
-    }, 2000)
+    }, modalCloseTimeout)
   },
 }
 </script>

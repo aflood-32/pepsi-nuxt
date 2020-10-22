@@ -30,8 +30,8 @@
     <info :info-modal="info" />
     <div
       v-if="modal || info"
-      @click="setModal(null)"
       class="modal-backdrop fade show"
+      @click="setModal(null)"
     />
   </div>
 </template>

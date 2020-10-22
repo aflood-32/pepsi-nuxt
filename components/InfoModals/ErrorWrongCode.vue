@@ -33,11 +33,23 @@
 </template>
 
 <script>
+import { modalCloseTimeout } from '@/helpers/constants'
+
 export default {
   props: {
     message: {
       type: String,
+      required: true,
+      default() {
+        return ''
+      },
     },
+  },
+  mounted() {
+    const self = this
+    setTimeout(() => {
+      self.$emit('close')
+    }, modalCloseTimeout)
   },
 }
 </script>

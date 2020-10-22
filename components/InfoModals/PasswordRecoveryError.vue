@@ -33,12 +33,14 @@
 </template>
 
 <script>
+import { modalCloseTimeout } from '@/helpers/constants'
+
 export default {
   mounted() {
     const self = this
     setTimeout(() => {
       self.$emit('close')
-    }, 2000)
+    }, modalCloseTimeout)
   },
 }
 </script>

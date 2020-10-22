@@ -1,9 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import { BASE_API_PATH } from '~/helpers/constants'
+import { BASE_API_PATH, codeModals } from '~/helpers/constants'
 
 Vue.use(Vuex)
+
+const authToken = () => {
+  const token = JSON.parse(localStorage.getItem('user')).tokens[0].access_token
+  return {
+    headers: { Authorization: `Bearer ${token}` },
+  }
+}
 
 const store = () =>
   new Vuex.Store({
@@ -45,9 +52,29 @@ const store = () =>
       setInfoModal({ commit }, payload) {
         commit('MODAL_INFO_SET', payload)
       },
-      saveCode({ commit, state }, payload) {
+      saveCode({ commit, state, dispatch }, payload) {
         commit('CODE_SAVED', payload)
         if (state.user) {
+          axios
+            .get(
+              `${BASE_API_PATH}/codes/sendcode?code=${state.code}`,
+              authToken()
+            )
+            .then((res) => {
+              const needCaptcha = res.data.data.needcaptha
+              const codeStatus = res.data.data.status.txtype
+              if (needCaptcha) {
+                dispatch('setInfoModal', 'captha')
+              } else {
+                dispatch('setInfoModal', codeModals[codeStatus])
+              }
+              console.log(res)
+            })
+            .catch((err) => {
+              const status = err.response.status
+              console.error(err.response)
+              dispatch('setInfoModal', codeModals[status])
+            })
           console.log('sent')
         } else {
           commit('MODAL_SET', 'login')
@@ -76,7 +103,6 @@ const store = () =>
           })
           .catch((err) => {
             const status = err.response.status
-            console.log(err.response)
             if (status === 403) {
               dispatch('setInfoModal', 'userError')
             }
@@ -91,7 +117,6 @@ const store = () =>
           })
           .catch((err) => {
             const status = err.response.status
-            console.log(err.response)
             if (status === 404) {
               dispatch('setInfoModal', 'recoveryError')
             }
@@ -106,14 +131,9 @@ const store = () =>
         commit('LOG_OUT')
       },
       fetchInfo({ commit }, payload) {
-        axios
-          .get(`${BASE_API_PATH}/info/${payload}`)
-          .then((res) => {
-            commit(`FETCH_${payload.toUpperCase()}_SUCCESS`, res.data.data)
-          })
-          .catch((err) => {
-            console.error(err)
-          })
+        axios.get(`${BASE_API_PATH}/info/${payload}`).then((res) => {
+          commit(`FETCH_${payload.toUpperCase()}_SUCCESS`, res.data.data)
+        })
       },
     },
     getters: {
